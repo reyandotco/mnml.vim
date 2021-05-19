@@ -24,7 +24,7 @@ mnml
 
 --- install
 
-  $ cp clr/mnml.vim $XDG_CONFIG_HOME/etc/nvim/colors/
+  $ cp clr/mnml.vim $XDG_CONFIG_HOME/nvim/colors/ # ~/.config for macOS
 
   in init.vim:
   ------------
