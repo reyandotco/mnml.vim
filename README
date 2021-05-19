@@ -13,10 +13,10 @@ mnml
 
 --- optimization
 
-  check out some of my palettes [1] for optimal the colour setup, but tl;dr
+  check out some of my palettes [1] for the optimal colour setup, but tl;dr
   make sure colour 8 is light enough to be used a comment and that colour 0 is
   barely lighter than the background. Whites should get incrementally darker
-  but that's not nearly as important as the blacks.  bright colours (excluding
+  but that's not nearly as important as the blacks. bright colours (excluding
   grayscale) aren't necessary and can just be duplicated if you can't be
   bothered to increase shades manually, they aren't used in the colourscheme
 
