@@ -1,0 +1,32 @@
+mnml
+
+--- about
+
+  an experiment in minimal yet effective syntax highlighting that is
+  independent of actual terminal colourscheme.
+
+  note
+  ----
+
+  all highlighting is done using 'cterm' attributes and is reliant only on how
+  well your terminal colours are configured.
+
+--- optimization
+
+  check out some of my palettes [1] for optimal the colour setup, but tl;dr
+  make sure colour 8 is light enough to be used a comment and that colour 0 is
+  barely lighter than the background. Whites should get incrementally darker
+  but that's not nearly as important as the blacks.  bright colours (excluding
+  grayscale) aren't necessary and can just be duplicated if you can't be
+  bothered to increase shades manually, they aren't used in the colourscheme
+
+  [1] <https://0x0.st/Nl7L>
+
+--- install
+
+  $ cp clr/mnml.vim $XDG_CONFIG_HOME/etc/nvim/colors/
+
+  in init.vim:
+  ------------
+
+  colorscheme mnml
