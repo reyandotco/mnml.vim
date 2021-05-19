@@ -145,7 +145,7 @@ call s:h("Subtle",        {"fg": s:norm_subtle})
 hi! link LineNr           Subtle
 
 " split
-call s:h("Split",         {"fg": s:norm_subtle, "bg": s:norm_subtle})
+call s:h("Split",         {"fg": s:comment, "bg": s:comment})
 hi! link VertSplit        Split
 
 " linenr
@@ -321,5 +321,5 @@ hi ALEInfoSign                    ctermfg=7
 
 " shit that wont work
 hi EndOFBuffer                    ctermfg=0
-hi StatusLine                     ctermfg=0
-hi StatusLineNC                   ctermfg=0
+hi StatusLine                     ctermfg=8
+hi StatusLineNC                   ctermfg=8
