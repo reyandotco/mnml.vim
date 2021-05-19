@@ -1,5 +1,6 @@
-" vybe v1.1
-" focus on focusing
+" mnml
+" highlight smarter
+" not more
 " author: nuaNce
 
 hi clear
