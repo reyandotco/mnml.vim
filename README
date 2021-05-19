@@ -2,8 +2,8 @@ mnml
 
 --- about
 
-  an experiment in minimal yet effective syntax highlighting that is
-  independent of actual terminal colourscheme.
+  an experiment in minimal yet effective syntax highlighting that aims to
+  remove the need to separately configure terminal and nvim colourschemes.
 
   note
   ----
