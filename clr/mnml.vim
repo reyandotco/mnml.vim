@@ -79,7 +79,7 @@ endfunction
 " normal
 call s:h("Normal",    {"fg": s:norm})
 
-hi! link Cursor       Identifier
+hi! link Cursor           Identifier
 hi! link StorageClass     Type
 hi! link Structure        Type
 hi! link Typedef          Type
@@ -173,10 +173,10 @@ call s:h("DiffChange",    {"fg": s:yellow})
 call s:h("DiffText",      {"fg": s:constant})
 
 " spell checking
-call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
-call s:h("SpellCap",    {"cterm": "underline", "fg": s:ok})
-call s:h("SpellRare",   {"cterm": "underline", "fg": s:error})
-call s:h("SpellLocal",  {"cterm": "underline", "fg": s:ok})
+call s:h("SpellBad",      {"cterm": "underline", "fg": s:red})
+call s:h("SpellCap",      {"cterm": "underline", "fg": s:ok})
+call s:h("SpellRare",     {"cterm": "underline", "fg": s:error})
+call s:h("SpellLocal",    {"cterm": "underline", "fg": s:ok})
 
 " hypertext
 hi! link helpHyperTextEntry Title
