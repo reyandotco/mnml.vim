@@ -22,6 +22,10 @@ mnml
 
   [1] <https://0x0.st/Nl7L>
 
+  most base16 compliant colourschemes should work just fine, note that color 8
+  and 0 may have to be shifted slightly in order to achieve nicer grays. You can
+  do this easily using shell scripts or a website like <https://colorhexa.com>.
+
 --- install
 
   $ cp clr/mnml.vim $XDG_CONFIG_HOME/nvim/colors/ # ~/.config for macOS
