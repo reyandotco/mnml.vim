@@ -289,6 +289,8 @@ hi link cType                     Statement
 hi link cppStructure              Keyword
 hi link cSpecial                  Noise
 hi link cBlock                    Noise
+" ini
+hi link dosiniHeader              Keyword
 " json
 hi link jsonBraces                Noise
 " toml
