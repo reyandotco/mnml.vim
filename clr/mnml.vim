@@ -1,6 +1,5 @@
 " mnml
-" highlight smarter
-" not more
+" highlight smarter, not more
 " author: nuaNce
 
 hi clear
@@ -77,7 +76,7 @@ function! s:h(group, style)
 endfunction
 
 " normal
-call s:h("Normal",    {"fg": s:norm})
+call s:h("Normal",        {"fg": s:norm})
 
 hi! link Cursor           Identifier
 hi! link StorageClass     Type
@@ -129,7 +128,6 @@ hi! link Exception        Statement
 
 " msgs
 call s:h("ErrorMsg",      {"fg": s:error})
-call s:h("WarningMsg",    {"fg": s:warning})
 call s:h("MoreMsg",       {"fg": s:norm_subtle, "cterm": "bold" })
 hi! link Error            ErrorMsg
 hi! link Question         ErrorMsg
@@ -202,126 +200,129 @@ call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg, "fg": s:ok})
 call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg, "fg": s:error})
 call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg, "fg": s:warning})
 
+"EOB
+hi EndOFBuffer                   ctermfg=0
+hi NonText                       ctermfg=0
+
+"statusline
+hi StatusLine                    ctermfg=8
+hi StatusLineNC                  ctermfg=8
+
 " lang specific highlighting
 "
 " html
-hi link htmlTagN                  Statement
-hi link htmlTag                   Statement
-hi link htmlEndTag                Statement
-hi link HtmlTagName               Statement
-hi link HtmlString                Constant
-hi! link htmlH1                   Keyword
-hi! link htmlH2                   Keyword
-hi! link htmlH3                   Keyword
-hi! link htmlH4                   Normal
-hi! link htmlH5                   Normal
-hi! link htmlH6                   Normal
+hi link htmlTagN                 Statement
+hi link htmlTag                  Statement
+hi link htmlEndTag               Statement
+hi link HtmlTagName              Statement
+hi link HtmlString               Constant
+hi! link htmlH1                  Keyword
+hi! link htmlH2                  Keyword
+hi! link htmlH3                  Keyword
+hi! link htmlH4                  Normal
+hi! link htmlH5                  Normal
+hi! link htmlH6                  Normal
 " diffs
-hi link diffRemoved               DiffDelete
-hi link diffAdded                 DiffAdd
+hi link diffRemoved              DiffDelete
+hi link diffAdded                DiffAdd
 " javascript
-hi link jsFlowTypeKeyword         Statement
-hi link jsFlowImportType          Statement
-hi link jsFunction                Statement
-hi link StorageClass              Statement
-hi link jsGlobalObjects           Normal
-hi link jsGlobalNodeObjects       Normal
-hi link jsArrowFunction           Noise
+hi link jsFlowTypeKeyword        Statement
+hi link jsFlowImportType         Statement
+hi link jsFunction               Statement
+hi link StorageClass             Statement
+hi link jsGlobalObjects          Normal
+hi link jsGlobalNodeObjects      Normal
+hi link jsArrowFunction          Noise
 " xml
-hi link xmlTag                    Statement
-hi link xmlTagName                xmlTag
-hi link xmlEndTag                 xmlTag
-hi link xmlAttrib                 xmlTag
+hi link xmlTag                   Statement
+hi link xmlTagName               xmlTag
+hi link xmlEndTag                xmlTag
+hi link xmlAttrib                xmlTag
 " markdown
-hi link markdownH1                Statement
-hi link markdownH2                Statement
-hi link markdownH3                Statement
-hi link markdownH4                Statement
-hi link markdownH5                Statement
-hi link markdownH6                Statement
-hi link markdownListMarker        Constant
-hi link markdownCode              Constant
-hi link markdownCodeBlock         Constant
-hi link markdownCodeDelimiter     Constant
-hi link markdownHeadingDelimiter  Constant
-hi link mkdCodeStart              Comment
-hi link mkdCodeEnd                Comment
-hi link mkdListItem               Noise
+hi link markdownH1               Statement
+hi link markdownH2               Statement
+hi link markdownH3               Statement
+hi link markdownH4               Statement
+hi link markdownH5               Statement
+hi link markdownH6               Statement
+hi link markdownListMarker       Constant
+hi link markdownCode             Constant
+hi link markdownCodeBlock        Constant
+hi link markdownCodeDelimiter    Constant
+hi link markdownHeadingDelimiter Constant
+hi link mkdCodeStart             Comment
+hi link mkdCodeEnd               Comment
+hi link mkdListItem              Noise
 " yaml
-hi link yamlBlockMappingKey       Statement
+hi link yamlBlockMappingKey      Statement
 " python
-hi link pythonOperator            Statement
+hi link pythonOperator           Statement
 " sql
-hi link sqlStatement              Statement
-hi link sqlKeyword                Keyword
+hi link sqlStatement             Statement
+hi link sqlKeyword               Keyword
 " shell
-hi link ShShebang                 Comment
+hi link ShShebang                Comment
 " css
-hi link cssCustomProp             Constant
-hi link cssFunctionName           Constant
-hi link cssDefinition             Constant
-hi link cssAttrRegion             Constant
-hi link cssBraces                 Keyword
-hi link cssIdentifier             Keyword
-hi link cssAtKeyword              Keyword
-hi link cssClassName              Keyword
-hi link cssClassNameDot           Keyword
-hi link cssProp                   Normal
-hi link cssNoise                  Normal
-hi link cssPseudoClassId          Normal
-hi link cssPseudoClass            Normal
-hi link cssBraceError             Normal
-hi link cssImportant              Noise
-hi link cssFontAttr               Noise
+hi link cssCustomProp            Constant
+hi link cssFunctionName          Constant
+hi link cssDefinition            Constant
+hi link cssAttrRegion            Constant
+hi link cssBraces                Keyword
+hi link cssIdentifier            Keyword
+hi link cssAtKeyword             Keyword
+hi link cssClassName             Keyword
+hi link cssClassNameDot          Keyword
+hi link cssProp                  Normal
+hi link cssNoise                 Normal
+hi link cssPseudoClassId         Normal
+hi link cssPseudoClass           Normal
+hi link cssBraceError            Normal
+hi link cssImportant             Noise
+hi link cssFontAttr              Noise
 " scss
-hi link scssVariable              Constant
-hi link scssDefinition            Constant
-hi link scssSelectorChar          Keyword
-hi link scssSelectorName          Keyword
-hi link scssAttribute             Normal
+hi link scssVariable             Constant
+hi link scssDefinition           Constant
+hi link scssSelectorChar         Keyword
+hi link scssSelectorName         Keyword
+hi link scssAttribute            Normal
 " TeX
-hi link texDelim                  Statement
-hi link texEnvArgName             Constant
-hi link texTabularChar            Noise
-hi link texCmdBookTabs            Noise
+hi link texDelim                 Statement
+hi link texEnvArgName            Constant
+hi link texTabularChar           Noise
+hi link texCmdBookTabs           Noise
 " c/cpp
-hi link cType                     Statement
-hi link cppStructure              Keyword
-hi link cSpecial                  Noise
-hi link cBlock                    Noise
+hi link cType                    Statement
+hi link cppStructure             Keyword
+hi link cSpecial                 Noise
+hi link cBlock                   Noise
 " ini
-hi link dosiniHeader              Keyword
+hi link dosiniHeader             Keyword
 " json
-hi link jsonBraces                Noise
+hi link jsonBraces               Noise
 " toml
-hi link tomlTable                 Keyword
+hi link tomlTable                Keyword
 " todos
-hi link shTodo                    Keyword
-hi link Todo                      Keyword
+hi link shTodo                   Keyword
+hi link Todo                     Keyword
 
 " plugin specific highlighting
 "
 " VimTeX
-hi link VimtexInfo                Statement
-hi link VimtexTocSecLabel         Keyword
-hi link VimtexTocSec0             Normal
-hi link VimtexTocSec1             Normal
-hi link VimtexTocSec2             Normal
-hi link VimtexTocTitle            Normal
+hi link VimtexInfo               Statement
+hi link VimtexTocSecLabel        Keyword
+hi link VimtexTocSec0            Normal
+hi link VimtexTocSec1            Normal
+hi link VimtexTocSec2            Normal
+hi link VimtexTocTitle           Normal
 " CoC
-hi CocErrorSign                   ctermfg=1
-hi CocWarningSign                 ctermfg=3
-hi CocHintSign                    ctermfg=2
-hi CocInfoSign                    ctermfg=6
+hi CocErrorSign                  ctermfg=1
+hi CocWarningSign                ctermfg=3
+hi CocHintSign                   ctermfg=2
+hi CocInfoSign                   ctermfg=6
 " ALE
-hi ALEError                       ctermfg=1
-hi ALEErrorSign                   ctermfg=1
-hi ALEWarning                     ctermfg=3
-hi ALEWarningSign                 ctermfg=3
-hi ALEInfo                        ctermfg=7
-hi ALEInfoSign                    ctermfg=7
-
-" shit that wont work
-hi EndOFBuffer                    ctermfg=0
-hi StatusLine                     ctermfg=8
-hi StatusLineNC                   ctermfg=8
+hi ALEError                      ctermfg=1
+hi ALEErrorSign                  ctermfg=1
+hi ALEWarning                    ctermfg=3
+hi ALEWarningSign                ctermfg=3
+hi ALEInfo                       ctermfg=7
+hi ALEInfoSign                   ctermfg=7
