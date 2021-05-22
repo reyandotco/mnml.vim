@@ -10,64 +10,23 @@ endif
 
 let g:colors_name='mnml'
 
-" define colours
+" colours
 "
-" grayscale
-let s:b1 = { "cterm": "0"   }
-let s:b2 = { "cterm": "0"   }
-let s:b3 = { "cterm": "8"   }
-let s:b4 = { "cterm": "8"   }
-let s:w4 = { "cterm": "7"   }
-let s:w3 = { "cterm": "250" }
-let s:w2 = { "cterm": "15"  }
-let s:w1 = { "cterm": "255" }
-" actual colours
-let s:c_red     = { "cterm": "1" }
-let s:c_green   = { "cterm": "2" }
-let s:c_yellow  = { "cterm": "3" }
-let s:c_blue    = { "cterm": "4" }
-let s:c_magenta = { "cterm": "5" }
-let s:c_cyan    = { "cterm": "6" }
+let s:bg0 = { "cterm": "0"   }
+let s:bg1 = { "cterm": "8"   }
+let s:bg2 = { "cterm": "240" }
+let s:fg0 = { "cterm": "15"  }
+let s:fg1 = { "cterm": "7"   }
+"
+let s:red    = { "cterm": "1" }
+let s:green  = { "cterm": "2" }
+let s:yellow = { "cterm": "3" }
+" the main 'accent'
+let s:blue   = { "cterm": "4" }
+let s:purple = { "cterm": "5" }
+let s:cyan   = { "cterm": "6" }
 
-" change into sensib
-let s:bg               = s:b1
-let s:bg_very_subtle   = s:b1
-let s:norm_very_subtle = s:b1
-let s:visual           = s:b1
-let s:cursor_line      = s:b1
-let s:selection_fg     = s:b1
-let s:norm_subtle      = s:b2
-let s:bg_subtle        = s:b4
-let s:comment          = s:b3
-let s:norm             = s:w3
-let s:red              = s:c_red
-let s:error            = s:c_red
-let s:ok               = s:c_green
-let s:green            = s:c_green
-let s:yellow           = s:c_yellow
-let s:selection        = s:c_yellow
-let s:warning          = s:c_yellow
-let s:constant         = s:c_blue
-let s:purple           = s:c_magenta
-let s:cyan             = s:c_cyan
-
-" pkill colours
-unlet s:b1
-unlet s:b2
-unlet s:b3
-unlet s:b4
-unlet s:w4
-unlet s:w2
-unlet s:w3
-unlet s:w1
-unlet s:c_red
-unlet s:c_blue
-unlet s:c_cyan
-unlet s:c_green
-unlet s:c_magenta
-unlet s:c_yellow
-
-" ez templating
+" ez
 function! s:h(group, style)
   execute "highlight" a:group
     \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
@@ -76,18 +35,9 @@ function! s:h(group, style)
 endfunction
 
 " normal
-call s:h("Normal",        {"fg": s:norm})
-
+call s:h("Normal",        {"fg": s:fg0})
 hi! link Cursor           Identifier
-hi! link StorageClass     Type
-hi! link Structure        Type
-hi! link Typedef          Type
-hi! link Identifier       Normal
-hi! link Type             Normal
-hi! link TabLine          Normal
-hi! link TabLineFill      Normal
-hi! link PreProc          Normal
-hi! link Special          Normal
+hi! link Function         Identifier
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special
@@ -96,19 +46,27 @@ hi! link Debug            Special
 hi! link Define           PreProc
 hi! link Macro            PreProc
 hi! link PreCondit        PreProc
-hi! link Function         Identifier
+hi! link Identifier       Normal
+hi! link Type             Normal
+hi! link TabLine          Normal
+hi! link TabLineFill      Normal
+hi! link PreProc          Normal
+hi! link Special          Normal
+hi! link StorageClass     Type
+hi! link Structure        Type
+hi! link Typedef          Type
 
 " operator
-call s:h("Noise",         {"fg": s:bg_subtle, "cterm": "NONE"})
+call s:h("Noise",         {"fg": s:bg2, "cterm": "NONE"})
 hi! link Operator         Noise
 hi! link FoldColumn       LineNr
 hi! link SignColumn       LineNr
 
 " comment
-call s:h("Comment",       {"fg": s:comment, "cterm": "NONE"})
+call s:h("Comment",       {"fg": s:bg1, "cterm": "NONE"})
 
 " constant
-call s:h("Constant",      {"fg": s:constant})
+call s:h("Constant",      {"fg": s:blue})
 hi! link Character        Constant
 hi! link Number           Constant
 hi! link Boolean          Constant
@@ -118,87 +76,87 @@ hi! link Directory        Constant
 hi! link Title            Constant
 
 " statement
-call s:h("Statement",     {"fg": s:norm, "cterm": "bold"})
+call s:h("Statement",     {"fg": s:fg0, "cterm": "bold" })
 hi! link Include          Statement
 hi! link Conditonal       Statement
 hi! link Repeat           Statement
 hi! link Label            Statement
-hi! link Keyword          Statement
 hi! link Exception        Statement
+hi! link Keyword          Statement
 
 " msgs
-call s:h("ErrorMsg",      {"fg": s:error})
-call s:h("MoreMsg",       {"fg": s:norm_subtle, "cterm": "bold" })
+call s:h("ErrorMsg",      {"fg": s:red})
+call s:h("MoreMsg",       {"fg": s:bg2, "cterm": "bold" })
 hi! link Error            ErrorMsg
 hi! link Question         ErrorMsg
 hi! link ModeMsg          MoreMsg
 
 " dark
-call s:h("Dark",          {"fg": s:norm_very_subtle})
+call s:h("Dark",          {"fg": s:bg0, "bg": s:fg0})
 hi! link Folded           Dark
 hi! link qfLineNr         Dark
 
 " subtle
-call s:h("Subtle",        {"fg": s:norm_subtle})
+call s:h("Subtle",        {"fg": s:bg2})
 hi! link LineNr           Subtle
 
 " split
-call s:h("Split",         {"fg": s:comment, "bg": s:comment})
+call s:h("Split",         {"fg": s:bg1, "bg": s:bg1})
 hi! link VertSplit        Split
 
 " linenr
-call s:h("CursorLineNr",  {"fg": s:norm, "bg": s:bg_very_subtle, "cterm": "bold"})
+call s:h("CursorLineNr",  {"fg": s:fg0, "bg": s:bg0, "cterm": "bold"})
 hi! link CursorLineNr     CursorLineNr
 
 " search
-call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
-call s:h("IncSearch",     {"bg": s:selection, "fg": s:selection_fg, "cterm": "bold"})
+call s:h("Search",        {"bg": s:yellow, "fg": s:bg0})
+call s:h("IncSearch",     {"bg": s:yellow, "fg": s:bg0, "cterm": "bold"})
 
 " posmsg
 call s:h("PosMsg",        {"fg": s:green, "cterm": "bold"})
 hi! link VimtexMsg        PosMsg
 
 " visual
-call s:h("Visual",        {"bg": s:visual})
-call s:h("VisualNOS",     {"bg": s:bg_subtle})
+call s:h("Visual",        {"bg": s:bg0})
+call s:h("VisualNOS",     {"bg": s:bg1})
 
-call s:h("Ignore",        {"fg": s:bg})
+call s:h("Ignore",        {"fg": s:bg0})
 
 " diffs
-call s:h("DiffAdd",       {"fg": s:green, "bg": s:bg_very_subtle})
-call s:h("DiffDelete",    {"fg": s:red, "bg": s:bg_very_subtle})
+call s:h("DiffAdd",       {"fg": s:green, "bg": s:bg0})
+call s:h("DiffDelete",    {"fg": s:red, "bg": s:bg0})
 call s:h("DiffChange",    {"fg": s:yellow})
-call s:h("DiffText",      {"fg": s:constant})
+call s:h("DiffText",      {"fg": s:blue})
 
 " spell checking
 call s:h("SpellBad",      {"cterm": "underline", "fg": s:red})
-call s:h("SpellCap",      {"cterm": "underline", "fg": s:ok})
-call s:h("SpellRare",     {"cterm": "underline", "fg": s:error})
-call s:h("SpellLocal",    {"cterm": "underline", "fg": s:ok})
+call s:h("SpellCap",      {"cterm": "underline", "fg": s:green})
+call s:h("SpellRare",     {"cterm": "underline", "fg": s:red})
+call s:h("SpellLocal",    {"cterm": "underline", "fg": s:green})
 
 " hypertext
 hi! link helpHyperTextEntry Title
 hi! link helpHyperTextJump  String
 
 " pmenu
-call s:h("Pmenu",         {"fg": s:norm, "bg": s:cursor_line})
-call s:h("PmenuSel",      {"fg": s:norm, "bg": s:cursor_line, "cterm": "bold"})
+call s:h("Pmenu",         {"fg": s:fg0, "bg": s:bg0})
+call s:h("PmenuSel",      {"fg": s:fg0, "bg": s:bg0, "cterm": "bold"})
 hi! link PmenuSbar        Pmenu
 hi! link PmenuThumb       Pmenu
 hi! link TabLineSel       PmenuSel
 
 " cursorline
-call s:h("CursorLine",    {"bg": s:cursor_line})
-call s:h("CursorColumn",  {"bg": s:cursor_line})
+call s:h("CursorLine",    {"bg": s:bg0})
+call s:h("CursorColumn",  {"bg": s:bg0})
 
 " match paren
-call s:h("MatchParen",    {"bg": s:comment, "fg": s:norm})
+call s:h("MatchParen",    {"bg": s:bg1, "fg": s:fg0})
 
 " wildmenu
-call s:h("WildMenu",          {"cterm": "underline,bold", "bg": s:bg, "fg": s:norm})
-call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg, "fg": s:ok})
-call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg, "fg": s:error})
-call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg, "fg": s:warning})
+call s:h("WildMenu",          {"cterm": "underline,bold", "bg": s:bg0, "fg": s:fg0})
+call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg0, "fg": s:green})
+call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg0, "fg": s:red})
+call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg0, "fg": s:yellow})
 
 "EOB
 hi EndOFBuffer                   ctermfg=0
@@ -262,6 +220,7 @@ hi link sqlStatement             Statement
 hi link sqlKeyword               Keyword
 " shell
 hi link ShShebang                Comment
+hi link zshPreProc               Comment
 " css
 hi link cssCustomProp            Constant
 hi link cssFunctionName          Constant
@@ -276,9 +235,10 @@ hi link cssProp                  Normal
 hi link cssNoise                 Normal
 hi link cssPseudoClassId         Normal
 hi link cssPseudoClass           Normal
-hi link cssBraceError            Normal
 hi link cssImportant             Noise
 hi link cssFontAttr              Noise
+" prevents ruining of sass/scss files
+hi link cssBraceError            Normal
 " scss
 hi link scssVariable             Constant
 hi link scssDefinition           Constant
