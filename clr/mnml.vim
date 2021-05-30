@@ -117,7 +117,7 @@ call s:h("PosMsg",        {"fg": s:green, "cterm": "bold"})
 hi! link VimtexMsg        PosMsg
 
 " visual
-call s:h("Visual",        {"bg": s:bg0})
+call s:h("Visual",        {"bg": s:bg1})
 call s:h("VisualNOS",     {"bg": s:bg1})
 
 call s:h("Ignore",        {"fg": s:bg0})
@@ -250,6 +250,11 @@ hi link texDelim                 Statement
 hi link texEnvArgName            Constant
 hi link texTabularChar           Noise
 hi link texCmdBookTabs           Noise
+" clojure
+hi link clojureDefine            Statement
+hi link clojureMacro             Statement
+hi link clojureParen             Noise
+hi link clojureSexp              Noise
 " c/cpp
 hi link cType                    Statement
 hi link cppStructure             Keyword
