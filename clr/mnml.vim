@@ -255,6 +255,8 @@ hi link clojureDefine            Statement
 hi link clojureMacro             Statement
 hi link clojureParen             Noise
 hi link clojureSexp              Noise
+" erlang
+hi link erlangLocalFuncCall      Statement
 " c/cpp
 hi link cType                    Statement
 hi link cppStructure             Keyword
