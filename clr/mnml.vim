@@ -257,6 +257,14 @@ hi link clojureParen             Noise
 hi link clojureSexp              Noise
 " erlang
 hi link erlangLocalFuncCall      Statement
+" nix
+hi link nixLetExpr               Statement
+hi link nixPath                  Constant
+" elm
+hi link elmTypeDef               Statement
+hi link elmFuncName              Statement
+hi link elmBraces                Keyword
+hi link elmDelimiter             Noise
 " c/cpp
 hi link cType                    Statement
 hi link cppStructure             Keyword
