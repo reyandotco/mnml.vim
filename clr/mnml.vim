@@ -173,10 +173,10 @@ hi link htmlTagN                 Statement
 hi link htmlTag                  Statement
 hi link htmlEndTag               Statement
 hi link HtmlTagName              Statement
+hi! link htmlH1                  Statement
+hi! link htmlH2                  Statement
+hi! link htmlH3                  Statement
 hi link HtmlString               Constant
-hi! link htmlH1                  Keyword
-hi! link htmlH2                  Keyword
-hi! link htmlH3                  Keyword
 hi! link htmlH4                  Normal
 hi! link htmlH5                  Normal
 hi! link htmlH6                  Normal
@@ -217,20 +217,20 @@ hi link yamlBlockMappingKey      Statement
 hi link pythonOperator           Statement
 " sql
 hi link sqlStatement             Statement
-hi link sqlKeyword               Keyword
+hi link sqlKeyword               Statement
 " shell
 hi link ShShebang                Comment
 hi link zshPreProc               Comment
 " css
+hi link cssBraces                Statement
+hi link cssIdentifier            Statement
+hi link cssAtKeyword             Statement
+hi link cssClassName             Statement
+hi link cssClassNameDot          Statement
 hi link cssCustomProp            Constant
 hi link cssFunctionName          Constant
 hi link cssDefinition            Constant
 hi link cssAttrRegion            Constant
-hi link cssBraces                Keyword
-hi link cssIdentifier            Keyword
-hi link cssAtKeyword             Keyword
-hi link cssClassName             Keyword
-hi link cssClassNameDot          Keyword
 hi link cssProp                  Normal
 hi link cssNoise                 Normal
 hi link cssPseudoClassId         Normal
@@ -240,10 +240,10 @@ hi link cssFontAttr              Noise
 " prevents ruining of sass/scss files
 hi link cssBraceError            Normal
 " scss
+hi link scssSelectorChar         Statement
+hi link scssSelectorName         Statement
 hi link scssVariable             Constant
 hi link scssDefinition           Constant
-hi link scssSelectorChar         Keyword
-hi link scssSelectorName         Keyword
 hi link scssAttribute            Normal
 " TeX
 hi link texDelim                 Statement
@@ -263,28 +263,28 @@ hi link nixPath                  Constant
 " elm
 hi link elmTypeDef               Statement
 hi link elmFuncName              Statement
-hi link elmBraces                Keyword
+hi link elmBraces                Statement
 hi link elmDelimiter             Noise
 " c/cpp
 hi link cType                    Statement
-hi link cppStructure             Keyword
+hi link cppStructure             Statement
 hi link cSpecial                 Noise
 hi link cBlock                   Noise
 " ini
-hi link dosiniHeader             Keyword
+hi link dosiniHeader             Statement
 " json
 hi link jsonBraces               Noise
 " toml
-hi link tomlTable                Keyword
+hi link tomlTable                Statement
 " todos
-hi link shTodo                   Keyword
-hi link Todo                     Keyword
+hi link shTodo                   Statement
+hi link Todo                     Statement
 
 " plugin specific highlighting
 "
 " VimTeX
 hi link VimtexInfo               Statement
-hi link VimtexTocSecLabel        Keyword
+hi link VimtexTocSecLabel        Statement
 hi link VimtexTocSec0            Normal
 hi link VimtexTocSec1            Normal
 hi link VimtexTocSec2            Normal
