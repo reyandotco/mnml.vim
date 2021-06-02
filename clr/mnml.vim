@@ -281,22 +281,13 @@ hi link Todo    Statement
 hi link diffRemoved  DiffDelete
 hi link diffAdded    DiffAdd
 
-" ini
+" not separating
+hi link lispParen  Noise
 hi link dosiniHeader  Statement
-
-" json
 hi link jsonBraces  Noise
-
-" toml
 hi link tomlTable  Statement
-
-" erlang
 hi link erlangLocalFuncCall  Statement
-
-" yaml
 hi link yamlBlockMappingKey  Statement
-
-" python
 hi link pythonOperator  Statement
 
 " plugin specific highlighting
