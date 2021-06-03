@@ -97,7 +97,7 @@ hi! link Folded   Dark
 hi! link qfLineNr Dark
 
 " subtle
-call s:h("Subtle", {"fg": s:bg2})
+call s:h("Subtle", {"fg": s:bg0})
 hi! link LineNr    Subtle
 
 " split
@@ -238,10 +238,11 @@ hi link texTabularChar   Noise
 hi link texCmdBookTabs   Noise
 
 " xml
-hi link xmlTag      Statement
-hi link xmlTagName  xmlTag
-hi link xmlEndTag   xmlTag
-hi link xmlAttrib   xmlTag
+hi link xmlNamespace Statement
+hi link xmlTagName   Statement
+hi link xmlEndTag    Statement
+hi link xmlTag       Statement
+hi link xmlAttrib    Normal
 
 " clojure
 hi link clojureDefine  Statement
