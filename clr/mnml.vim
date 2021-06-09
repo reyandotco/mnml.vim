@@ -21,7 +21,6 @@ let s:fg1 = { "cterm": "7"   }
 let s:red    = { "cterm": "1" }
 let s:green  = { "cterm": "2" }
 let s:yellow = { "cterm": "3" }
-" the main 'accent'
 let s:blue   = { "cterm": "4" }
 let s:purple = { "cterm": "5" }
 let s:cyan   = { "cterm": "6" }
@@ -116,9 +115,13 @@ call s:h("IncSearch", {"bg": s:yellow, "fg": s:bg0, "cterm": "bold"})
 call s:h("PosMsg", {"fg": s:green, "cterm": "bold"})
 hi! link VimtexMsg PosMsg
 
+" links
+call s:h("Href", {"fg": s:cyan, "cterm": "underline"})
+hi! link htmlLink Href
+
 " visual
-call s:h("Visual",    {"bg": s:bg1})
-call s:h("VisualNOS", {"bg": s:bg1})
+call s:h("Visual",    {"bg": s:bg0})
+call s:h("VisualNOS", {"bg": s:bg0})
 
 call s:h("Ignore", {"fg": s:bg0})
 
