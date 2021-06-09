@@ -14,7 +14,7 @@ let g:colors_name='mnml'
 "
 let s:bg0 = { "cterm": "0"   }
 let s:bg1 = { "cterm": "8"   }
-let s:bg2 = { "cterm": "240" }
+let s:bg2 = { "cterm": "243" }
 let s:fg0 = { "cterm": "15"  }
 let s:fg1 = { "cterm": "7"   }
 "
@@ -226,6 +226,14 @@ hi link StorageClass         Statement
 hi link jsGlobalObjects      Normal
 hi link jsGlobalNodeObjects  Normal
 hi link jsArrowFunction      Noise
+
+" haskell
+hi link haskellDeclKeyword  Statement
+hi link haskellIdentifier   Statement
+hi link haskellblock        Normal
+hi link haskellDelimiter    Normal
+hi link haskellParens       Noise
+hi link haskellSeparator    Noise
 
 " scss
 hi link scssSelectorChar  Statement
