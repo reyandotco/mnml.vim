@@ -18,12 +18,12 @@ let s:bg2 = { "cterm": "243" }
 let s:fg0 = { "cterm": "15"  }
 let s:fg1 = { "cterm": "7"   }
 "
-let s:red    = { "cterm": "1" }
-let s:green  = { "cterm": "2" }
-let s:yellow = { "cterm": "3" }
-let s:blue   = { "cterm": "4" }
-let s:purple = { "cterm": "5" }
-let s:cyan   = { "cterm": "6" }
+let s:red     = { "cterm": "1" }
+let s:green   = { "cterm": "2" }
+let s:yellow  = { "cterm": "3" }
+let s:blue    = { "cterm": "4" }
+let s:magenta = { "cterm": "5" }
+let s:cyan    = { "cterm": "6" }
 
 " ez
 function! s:h(group, style)
@@ -325,3 +325,8 @@ hi ALEWarning      ctermfg=3
 hi ALEWarningSign  ctermfg=3
 hi ALEInfo         ctermfg=7
 hi ALEInfoSign     ctermfg=7
+
+"quick-scope
+call s:h("QuickScope", {"fg": s:magenta, "cterm": "underline,bold"})
+hi link QuickScopePrimary   QuickScope
+hi link QuickScopeSecondary QuickScope
