@@ -1,6 +1,6 @@
 mnml
 
---- about
+# about
 
   an experiment in minimal yet effective syntax highlighting that aims to
   remove the need to separately configure terminal and nvim colourschemes.
@@ -11,7 +11,7 @@ mnml
   vim-polyglot adds a bunch additional new highlight groups, quite a few of
   which are modified in this colourscheme.
 
---- optimization
+# optimization
 
   check out some of my palettes [2] for the optimal colour setup, but tl;dr
   make sure colour 8 is light enough to be used a comment and that colour 0 is
@@ -24,15 +24,20 @@ mnml
   and 0 may have to be shifted slightly in order to achieve nicer grays. You
   can do this easily using shell scripts or a website like colorhexa [3].
 
---- install
+# install
 
   $ cp clr/mnml.vim $XDG_CONFIG_HOME/nvim/colors/ # ~/.config for macOS
 
-  - in init.vim:
+  in 'init.vim:'
 
   colorscheme mnml
 
---- footnote
+# todo
+
+  * use c_red for erratic code
+  * italics and underlines could be handy
+
+# footnote
 
   [1] https://github.com/sheerun/vim-polyglot
   [2] https://gitlab.com/co1ncidence/dotless/-/tree/master/etc/col
