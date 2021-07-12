@@ -62,23 +62,23 @@ hi! def link Operator Noise
 call s:h("Comment", {"fg": s:bg1, "cterm": "none"})
 
 " constant
-call s:h("Constant", {"fg": s:blue})
-hi! def link Character   Constant
-hi! def link Number      Constant
-hi! def link Boolean     Constant
-hi! def link Float       Constant
-hi! def link String      Constant
-hi! def link Directory   Constant
-hi! def link Title       Constant
+call s:h("Constant",    {"fg": s:blue})
+hi! def link Directory  Constant
+hi! def link Character  Constant
+hi! def link Boolean    Constant
+hi! def link String     Constant
+hi! def link Number     Constant
+hi! def link Float      Constant
+hi! def link Title      Constant
 
 " statement (bolded)
-call s:h("Statement", {"fg": s:fg0, "cterm": "bold" })
-hi! def link Include      Statement
-hi! def link Conditonal   Statement
-hi! def link Repeat       Statement
-hi! def link Label        Statement
-hi! def link Exception    Statement
-hi! def link Keyword      Statement
+call s:h("Statement",    {"fg": s:fg0, "cterm": "bold" })
+hi! def link Conditonal  Statement
+hi! def link Exception   Statement
+hi! def link Keyword     Statement
+hi! def link Include     Statement
+hi! def link Repeat      Statement
+hi! def link Label       Statement
 
 " italicized
 call s:h("Italicized", {"fg": s:fg0, "cterm": "italic" })
@@ -87,42 +87,48 @@ call s:h("Italicized", {"fg": s:fg0, "cterm": "italic" })
 call s:h("Todo", {"fg": s:fg0, "cterm": "bold" })
 
 " msgs
-call s:h("ErrorMsg", {"fg": s:red})
-call s:h("MoreMsg",  {"fg": s:bg2, "cterm": "bold" })
-hi! def link Error       ErrorMsg
-hi! def link Question    ErrorMsg
-hi! def link ModeMsg     MoreMsg
+call s:h("ErrorMsg",   {"fg": s:red})
+call s:h("MoreMsg",    {"fg": s:bg2, "cterm": "bold" })
+hi! def link Error     ErrorMsg
+hi! def link Question  ErrorMsg
+hi! def link ModeMsg   MoreMsg
 
 " dark
-call s:h("Dark",  {"fg": s:bg0, "bg": s:fg0})
-hi! def link Folded   Dark
-hi! def link qfLineNr Dark
+call s:h("Dark",       {"fg": s:bg0, "bg": s:fg0})
+hi! def link qfLineNr  Dark
+hi! def link Folded    Dark
 
 " subtle
-call s:h("Subtle",   {"fg": s:bg0})
+call s:h("Subtle",       {"fg": s:bg0})
 hi! def link LineNr      Subtle
 hi! def link FoldColumn  Subtle
 hi! def link SignColumn  Subtle
 
 " split
-call s:h("Split",  {"fg": s:bg1, "bg": s:bg1})
-hi! def link VertSplit Split
+call s:h("Split",       {"fg": s:bg0})
+hi! def link VertSplit  Split
+
+" fuck these so much
+hi! StatusLineNC cterm=NONE
+hi! StatusLine   cterm=NONE
 
 " linenr
-call s:h("CursorLineNr", {"fg": s:fg0, "cterm": "bold"})
-hi! def link CursorLineNr    CursorLineNr
+call s:h("CursorLineNr",   {"fg": s:fg0})
+hi! def link CursorLineNr  CursorLineNr
+hi! CursorLine             cterm=NONE
+hi! CursorColumn           cterm=NONE
 
 " search
 call s:h("Search",    {"bg": s:yellow, "fg": s:bg0})
 call s:h("IncSearch", {"bg": s:yellow, "fg": s:bg0, "cterm": "bold"})
 
 " posmsg
-call s:h("PosMsg", {"fg": s:green, "cterm": "bold"})
-hi! def link VimtexMsg PosMsg
+call s:h("PosMsg",      {"fg": s:green, "cterm": "bold"})
+hi! def link VimtexMsg  PosMsg
 
 " links
-call s:h("Href", {"fg": s:cyan, "cterm": "underline"})
-hi! def link htmlLink Href
+call s:h("Href",       {"fg": s:cyan, "cterm": "underline"})
+hi! def link htmlLink  Href
 
 " visual
 call s:h("Visual",    {"bg": s:bg0})
@@ -146,15 +152,11 @@ hi! def link helpHyperTextEntry Title
 hi! def link helpHyperTextJump  String
 
 " pmenu
-call s:h("Pmenu",    {"fg": s:fg0, "bg": s:bg0})
-call s:h("PmenuSel", {"fg": s:fg0, "bg": s:bg0, "cterm": "bold"})
-hi! def link PmenuSbar   Pmenu
-hi! def link PmenuThumb  Pmenu
+call s:h("Pmenu",        {"fg": s:fg0, "bg": s:bg0})
+call s:h("PmenuSel",     {"fg": s:fg0, "bg": s:bg0, "cterm": "bold"})
 hi! def link TabLineSel  PmenuSel
-
-" cursorline
-call s:h("CursorLine",   {"bg": s:bg0})
-call s:h("CursorColumn", {"bg": s:bg0})
+hi! def link PmenuThumb  Pmenu
+hi! def link PmenuSbar   Pmenu
 
 " match paren
 call s:h("MatchParen", {"bg": s:bg1, "fg": s:fg0})
@@ -169,9 +171,23 @@ call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg0, "fg": s:yellow
 hi! EndOFBuffer ctermfg=0
 hi! NonText     ctermfg=0
 
-"statusline
-hi! StatusLine   ctermfg=8
-hi! StatusLineNC ctermfg=8
+" css
+hi! def link cssClassNameDot   Statement
+hi! def link cssIdentifier     Statement
+hi! def link cssAtKeyword      Statement
+hi! def link cssClassName      Statement
+hi! def link cssBraces         Statement
+hi! def link cssFunctionName   Constant
+hi! def link cssCustomProp     Constant
+hi! def link cssDefinition     Constant
+hi! def link cssAttrRegion     Constant
+hi! def link cssPseudoClassId  Normal
+hi! def link cssPseudoClass    Normal
+hi! def link cssBraceError     Normal
+hi! def link cssNoise          Normal
+hi! def link cssProp           Normal
+hi! def link cssImportant      Noise
+hi! def link cssFontAttr       Noise
 
 " markdown
 hi! def link markdownH1                Statement
@@ -180,37 +196,34 @@ hi! def link markdownH3                Statement
 hi! def link markdownH4                Statement
 hi! def link markdownH5                Statement
 hi! def link markdownH6                Statement
-hi! def link markdownListMarker        Constant
-hi! def link markdownCode              Constant
-hi! def link markdownCodeBlock         Constant
-hi! def link markdownCodeDelimiter     Constant
 hi! def link markdownHeadingDelimiter  Constant
+hi! def link markdownCodeDelimiter     Constant
+hi! def link markdownListMarker        Constant
+hi! def link markdownCodeBlock         Constant
+hi! def link markdownCode              Constant
 hi! def link mkdCodeStart              Comment
 hi! def link mkdCodeEnd                Comment
 hi! def link mkdListItem               Noise
 
-" css
-hi! def link cssBraces         Statement
-hi! def link cssIdentifier     Statement
-hi! def link cssAtKeyword      Statement
-hi! def link cssClassName      Statement
-hi! def link cssClassNameDot   Statement
-hi! def link cssCustomProp     Constant
-hi! def link cssFunctionName   Constant
-hi! def link cssDefinition     Constant
-hi! def link cssAttrRegion     Constant
-hi! def link cssProp           Normal
-hi! def link cssNoise          Normal
-hi! def link cssPseudoClassId  Normal
-hi! def link cssPseudoClass    Normal
-hi! def link cssImportant      Noise
-hi! def link cssFontAttr       Noise
-hi! def link cssBraceError     Normal
+" TeX
+hi! def link texCmdEnv          Statement
+hi! def link texMathEnvArgName  Constant
+hi! def link texEnvArgName      Constant
+hi! def link texCmdBookTabs     Comment
+hi! def link texFilesArg        Normal
+hi! def link texFileArg         Normal
+hi! def link texCmdStyleBold    Noise
+hi! def link texCmdStyleItal    Noise
+hi! def link texTabularChar     Noise
+hi! def link texCmdPackage      Noise
+hi! def link texCmdClass        Noise
+hi! def link texCmdItem         Noise
+hi! def link texDelim           Noise
 
 " html
+hi! def link htmlEndTag   Statement
 hi! def link htmlTagN     Statement
 hi! def link htmlTag      Statement
-hi! def link htmlEndTag   Statement
 hi! def link HtmlTagName  Statement
 hi! def link htmlH1       Statement
 hi! def link htmlH2       Statement
@@ -223,33 +236,26 @@ hi! def link htmlH6       Normal
 " javascript
 hi! def link jsFlowTypeKeyword    Statement
 hi! def link jsFlowImportType     Statement
-hi! def link jsFunction           Statement
 hi! def link StorageClass         Statement
-hi! def link jsGlobalObjects      Normal
+hi! def link jsFunction           Statement
 hi! def link jsGlobalNodeObjects  Normal
+hi! def link jsGlobalObjects      Normal
 hi! def link jsArrowFunction      Noise
 
 " haskell
 hi! def link haskellDeclKeyword  Statement
 hi! def link haskellIdentifier   Statement
-hi! def link haskellblock        Normal
 hi! def link haskellDelimiter    Normal
+hi! def link haskellblock        Normal
 hi! def link haskellParens       Noise
 hi! def link haskellSeparator    Noise
 
 " scss
 hi! def link scssSelectorChar  Statement
 hi! def link scssSelectorName  Statement
-hi! def link scssVariable      Constant
 hi! def link scssDefinition    Constant
+hi! def link scssVariable      Constant
 hi! def link scssAttribute     Normal
-
-" TeX
-hi! def link texDelim        Statement
-hi! def link texEnvArgName   Constant
-hi! def link texFilesArg     Normal
-hi! def link texTabularChar  Noise
-hi! def link texCmdBookTabs  Noise
 
 " xml
 hi! def link xmlNamespace  Statement
@@ -261,8 +267,8 @@ hi! def link xmlAttrib     Normal
 " c/cpp
 hi! def link cppStructure  Statement
 hi! def link cType         Statement
-hi! def link cDefine       Normal
 hi! def link cSpecial      Noise
+hi! def link cDefine       Normal
 hi! def link cBlock        Noise
 
 " java
@@ -286,8 +292,8 @@ hi! def link clojureParen   Noise
 hi! def link clojureSexp    Noise
 
 " elm
-hi! def link elmTypeDef    Statement
 hi! def link elmFuncName   Statement
+hi! def link elmTypeDef    Statement
 hi! def link elmBraces     Statement
 hi! def link elmDelimiter  Noise
 
@@ -314,17 +320,17 @@ hi! def link diffRemoved  DiffDelete
 hi! def link diffAdded    DiffAdd
 
 " single and ready to mingle
-hi! def link dosiniHeader         Statement
-hi! def link tomlTable            Statement
 hi! def link erlangLocalFuncCall  Statement
 hi! def link yamlBlockMappingKey  Statement
 hi! def link pythonOperator       Statement
+hi! def link dosiniHeader         Statement
+hi! def link tomlTable            Statement
 hi! def link lispParen            Noise
 hi! def link jsonBraces           Noise
 
 " VimTeX
-hi! def link VimtexInfo         Statement
 hi! def link VimtexTocSecLabel  Statement
+hi! def link VimtexInfo         Statement
 hi! def link VimtexTocSec0      Normal
 hi! def link VimtexTocSec1      Normal
 hi! def link VimtexTocSec2      Normal
@@ -345,6 +351,19 @@ hi! ALEInfo         ctermfg=7
 hi! ALEInfoSign     ctermfg=7
 
 " quick-scope
-call s:h("Scope",    {"fg": s:fg0, "bg": s:bg1})
-hi! def link QuickScopePrimary   Scope
-hi! def link QuickScopeSecondary Scope
+call s:h("Scope",                 {"fg": s:fg0, "bg": s:bg1})
+hi! def link QuickScopePrimary    Scope
+hi! def link QuickScopeSecondary  Scope
+
+" nvim-tree
+hi! def link NvimTreeOpenedFile        Italicized
+hi! def link NvimTreeOpenedFolderName  Statement
+hi! def link NvimTreeEmptyFolderName   Statement
+hi! def link NvimTreeFolderName        Statement
+hi! def link NvimTreeSpecialFile       Constant
+hi! def link NvimTreeIndentMarker      Normal
+hi! def link NvimTreeFolderIcon        Normal
+
+" sigh
+call s:h("AllHigh",              {"fg": s:fg0, "bg": s:fg0})
+hi! def link NvimTreeRootFolder  AllHigh
