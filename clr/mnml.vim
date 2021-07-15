@@ -196,13 +196,14 @@ hi! def link markdownH3                Statement
 hi! def link markdownH4                Statement
 hi! def link markdownH5                Statement
 hi! def link markdownH6                Statement
-hi! def link markdownHeadingDelimiter  Constant
 hi! def link markdownCodeDelimiter     Constant
 hi! def link markdownListMarker        Constant
 hi! def link markdownCodeBlock         Constant
 hi! def link markdownCode              Constant
 hi! def link mkdCodeStart              Comment
 hi! def link mkdCodeEnd                Comment
+hi! def link markdownHeadingDelimiter  Comment
+hi! def link mdkNonListItemBlock       Comment
 hi! def link mkdListItem               Noise
 
 " TeX
@@ -272,12 +273,20 @@ hi! def link cDefine       Normal
 hi! def link cBlock        Noise
 
 " java
-hi! def link javaOperator  Statement
-hi! def link javaType      Statement
-hi! def link javaParenT1   Noise
-hi! def link javaParenT    Noise
-hi! def link javaParen1    Noise
-hi! def link javaParen     Noise
+hi! def link javaOperator     Statement
+hi! def link javaType         Statement
+hi! def link javaParenT1      Noise
+hi! def link javaSpecialChar  Noise
+hi! def link javaParenT       Noise
+hi! def link javaParen1       Noise
+hi! def link javaParen        Noise
+
+" csv
+hi! def link CSVColumnHeaderOdd   Statement
+hi! def link CSVColumnHeaderEven  Statement
+hi! def link CSVDelimiter         Constant
+hi! def link CSVColumnOdd         Normal
+hi! def link CSVColumnEven        Normal
 
 " typescript
 hi! def link typescriptVariable   Statement
@@ -349,11 +358,6 @@ hi! ALEWarning      ctermfg=3
 hi! ALEWarningSign  ctermfg=3
 hi! ALEInfo         ctermfg=7
 hi! ALEInfoSign     ctermfg=7
-
-" quick-scope
-call s:h("Scope",                 {"fg": s:fg0, "bg": s:bg1})
-hi! def link QuickScopePrimary    Scope
-hi! def link QuickScopeSecondary  Scope
 
 " nvim-tree
 hi! def link NvimTreeOpenedFile        Italicized
