@@ -1,6 +1,11 @@
-" mnml
-" highlight smarter, not more
-" author: nuaNce
+" Title: mnml
+" Description: highlight smarter, not more
+" Author: Reyan "nuaNce" Chaudhry
+"
+" TODO:
+" * italic/underline usage
+" * rework of group naming convention
+" * better per-lang organization
 
 hi clear
 
@@ -32,7 +37,6 @@ function! s:h(group, style)
 endfunction
 
 " normal
-" TODO: I'm being a bit racist here
 call s:h("Normal",           {"fg": s:fg0})
 hi! def link Cursor          Normal
 hi! def link Function        Normal
@@ -103,10 +107,7 @@ call s:h("Subtle",       {"fg": s:bg0})
 hi! def link LineNr      Subtle
 hi! def link FoldColumn  Subtle
 hi! def link SignColumn  Subtle
-
-" split
-call s:h("Split",       {"fg": s:bg0})
-hi! def link VertSplit  Split
+hi! def link VertSplit   Subtle
 
 " fuck these so much
 hi! StatusLineNC cterm=NONE
@@ -221,6 +222,21 @@ hi! def link texCmdClass        Noise
 hi! def link texCmdItem         Noise
 hi! def link texDelim           Noise
 
+" rust
+hi! def link rustMacro           Statement
+hi! def link rustModPath         Statement
+hi! def link rustSelf            Constant
+hi! def link rustCommentLineDoc  Comment
+hi! def link rustEscapeUnicode   Normal
+hi! def link rustModPathSep      Normal
+hi! def link rustFuncCall        Normal
+hi! def link rustStorage         Noise
+hi! def link rustAttribute       Noise
+hi! def link rustFoldBraces      Noise
+hi! def link rustSigil           Noise
+hi! def link rustDerive          Noise
+hi! def link rustDeriveTrait     Noise
+
 " html
 hi! def link htmlEndTag   Statement
 hi! def link htmlTagN     Statement
@@ -233,6 +249,16 @@ hi! def link HtmlString   Constant
 hi! def link htmlH4       Normal
 hi! def link htmlH5       Normal
 hi! def link htmlH6       Normal
+
+" java
+hi! def link javaOperator     Statement
+hi! def link javaType         Statement
+hi! def link javaAnnotation   Noise
+hi! def link javaParenT1      Noise
+hi! def link javaSpecialChar  Noise
+hi! def link javaParenT       Noise
+hi! def link javaParen1       Noise
+hi! def link javaParen        Noise
 
 " javascript
 hi! def link jsFlowTypeKeyword    Statement
@@ -272,21 +298,19 @@ hi! def link cSpecial      Noise
 hi! def link cDefine       Normal
 hi! def link cBlock        Noise
 
-" java
-hi! def link javaOperator     Statement
-hi! def link javaType         Statement
-hi! def link javaParenT1      Noise
-hi! def link javaSpecialChar  Noise
-hi! def link javaParenT       Noise
-hi! def link javaParen1       Noise
-hi! def link javaParen        Noise
-
 " csv
-hi! def link CSVColumnHeaderOdd   Statement
-hi! def link CSVColumnHeaderEven  Statement
-hi! def link CSVDelimiter         Constant
-hi! def link CSVColumnOdd         Normal
-hi! def link CSVColumnEven        Normal
+hi! CSVColumnHeaderOdd      ctermbg=8 cterm=bold
+hi! CSVColumnHeaderEven     ctermbg=8 cterm=bold
+hi! CSVColumnOdd            ctermbg=0
+hi! def link CSVDelimiter   Constant
+hi! def link CSVColumnEven  Normal
+
+" ruby
+hi! def link rubyDefine            Statement
+hi! def link rubyMacro             Statement
+hi! def link rubyDoBlock           Statement
+hi! def link rubyMethodBlock       Normal
+hi! def link rubyInstanceVariable  Noise
 
 " typescript
 hi! def link typescriptVariable   Statement
@@ -305,12 +329,6 @@ hi! def link elmFuncName   Statement
 hi! def link elmTypeDef    Statement
 hi! def link elmBraces     Statement
 hi! def link elmDelimiter  Noise
-
-" rust
-hi! def link rustMacro       Statement
-hi! def link rustFuncCall    Normal
-hi! def link rustModPathSep  Noise
-hi! def link rustFoldBraces  Noise
 
 " sql
 hi! def link sqlStatement  Statement
@@ -365,9 +383,6 @@ hi! def link NvimTreeOpenedFolderName  Statement
 hi! def link NvimTreeEmptyFolderName   Statement
 hi! def link NvimTreeFolderName        Statement
 hi! def link NvimTreeSpecialFile       Constant
-hi! def link NvimTreeIndentMarker      Normal
-hi! def link NvimTreeFolderIcon        Normal
-
-" sigh
-call s:h("AllHigh",              {"fg": s:fg0, "bg": s:fg0})
-hi! def link NvimTreeRootFolder  AllHigh
+hi! def link NvimTreeIndentMarker      Comment
+hi! def link NvimTreeFolderIcon        Comment
+hi! def link NvimTreeRootFolder        Comment
