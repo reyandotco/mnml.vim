@@ -2,44 +2,21 @@ mnml
 
 # about
 
-  an experiment in minimal yet effective syntax highlighting that aims to
-  remove the need to separately configure terminal and nvim colourschemes.
+  proper cterm-based vim colourscheme. designed to work with 16/256color
+  palettes. optimized for quite a few languages with more on the way.
 
   - note
 
-  this colourscheme requires the vim-polyglot plugin [1], this is because
-  vim-polyglot adds a bunch additional new highlight groups, quite a few of
-  which are modified in this colourscheme.
-
-# optimization
-
-  check out some of my palettes [2] for the optimal colour setup, but tl;dr
-  make sure colour 8 is light enough to be used a comment and that colour 0 is
-  barely lighter than the background. Whites should get incrementally darker
-  but that's not nearly as important as the blacks. bright colours (excluding
-  grayscale) aren't necessary and can just be duplicated if you can't be
-  bothered to increase shades manually, they aren't used in the colourscheme
-
-  most base16 compliant colourschemes should work just fine, note that color 8
-  and 0 may have to be shifted slightly in order to achieve nicer grays. You
-  can do this easily using shell scripts or a website like colorhexa [3].
+  requires vim-polyglot [1] for much of the highlighting.
 
 # install
 
-  $ cp clr/mnml.vim $XDG_CONFIG_HOME/nvim/colors/ # ~/.config for macOS
+  $ cp clr/mnml.vim ~/.config/nvim/colors/
 
-  in 'init.vim:'
+  in 'init.vim':
 
   colorscheme mnml
-
-# todo
-
-  * rework hl group naming convention
-  * use c_red for erratic code
-  * italics and underlines could be handy
 
 # footnote
 
   [1] https://github.com/sheerun/vim-polyglot
-  [2] https://gitlab.com/co1ncidence/dotless/-/tree/master/etc/col
-  [3] https://colorhexa.com
