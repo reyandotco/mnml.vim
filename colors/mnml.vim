@@ -19,7 +19,7 @@ let g:colors_name='mnml'
 " colours
 let s:bg0     = { "cterm": "0"   }
 let s:bg1     = { "cterm": "8"   }
-let s:bg2     = { "cterm": "243" }
+let s:bg2     = { "cterm": "242" }
 let s:fg0     = { "cterm": "15"  }
 let s:fg1     = { "cterm": "7"   }
 let s:red     = { "cterm": "1"   }
@@ -51,6 +51,9 @@ call s:h("Comment", {"fg": s:bg1})
   hi! def link markdownHeadingDelimiter Comment
   hi! def link mdkNonListItemBlock      Comment
   hi! def link ShShebang                Comment
+  hi! def link texTabularChar           Comment
+  hi! def link texTabularChar           Comment
+  hi! def link texMathDelimZone         Comment
   hi! def link zshPreProc               Comment
   hi! def link rustCommentLineDoc       Comment
   hi! def link texCmdBookTabs           Comment
@@ -72,6 +75,7 @@ call s:h("Noise", {"fg": s:bg2})
   hi! def link javaParen1           Noise
   hi! def link javaParen            Noise
   hi! def link rustStorage          Noise
+  hi! def link texCmdEnv           Noise
   hi! def link rustAttribute        Noise
   hi! def link rustFoldBraces       Noise
   hi! def link rustSigil            Noise
@@ -89,14 +93,15 @@ call s:h("Noise", {"fg": s:bg2})
   hi! def link haskellSeparator     Noise
   hi! def link texCmdStyleBold      Noise
   hi! def link texCmdStyleItal      Noise
-  hi! def link texTabularChar       Noise
   hi! def link texCmdPackage        Noise
   hi! def link texCmdClass          Noise
   hi! def link texCmdItem           Noise
+  hi! def link texCmd               Noise
   hi! def link texDelim             Noise
   hi! def link pythonDecorator      Noise
   hi! def link pythonDottedname     Noise
   hi! def link VimHiBang            Noise
+  hi! def link pythonOperator       Noise
 
 " normal
 call s:h("Normal", {"fg": s:fg1})
@@ -141,6 +146,7 @@ call s:h("Normal", {"fg": s:fg1})
   hi! def link CSVColumnEven       Normal
   hi! def link rubyMethodBlock     Normal
   hi! def link cDefine             Normal
+  hi! def link texArg              Normal
   hi! def link xmlAttrib           Normal
   hi! def link crystalCurlyBlock   Normal
 
@@ -157,7 +163,6 @@ call s:h("Green", {"fg": s:green})
   hi! def link SpellRare  Green
   hi! def link SpellLocal Green
   hi! def link VimtexMsg  Green
-  hi! def link pythonOperator Noise
 
 " yellow
 call s:h("Yellow", {"fg": s:yellow})
@@ -222,7 +227,6 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link markdownH4          Bolded
   hi! def link markdownH5          Bolded
   hi! def link markdownH6          Bolded
-  hi! def link texCmdEnv           Bolded
   hi! def link rustMacro           Bolded
   hi! def link rustModPath         Bolded
   hi! def link htmlEndTag          Bolded
@@ -242,6 +246,7 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link haskellIdentifier   Bolded
   hi! def link scssSelectorChar    Bolded
   hi! def link scssSelectorName    Bolded
+  hi! def link sassClass           Bolded
   hi! def link xmlNamespace        Bolded
   hi! def link xmlTagName          Bolded
   hi! def link xmlEndTag           Bolded
@@ -252,6 +257,7 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link rubyMacro           Bolded
   hi! def link rubyDoBlock         Bolded
   hi! def link typescriptVariable  Bolded
+  hi! def link texpartArgTitle     Bolded
   hi! def link typescriptImport    Bolded
   hi! def link clojureDefine       Bolded
   hi! def link clojureMacro        Bolded
@@ -272,17 +278,17 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
 " italicized
 call s:h("Italicized", {"fg": s:fg1, "cterm": "italic" })
 
-" dark bg
-call s:h("Highlight", {"bg": s:bg0})
+" light bg
+call s:h("Highlight", {"bg": s:bg1})
   hi! def link Visual    Highlight
   hi! def link VisualNOS Highlight
   hi! def link Ignore    Highlight
   hi! def link qfLineNr  Highlight
   hi! def link Folded    Highlight
 
-" light bg
-call s:h("Higherlight", {"bg": s:bg1})
-  hi! def link MatchParen Higherlight
+" darker bg
+call s:h("LowLight", {"bg": s:bg0})
+  hi! def link MatchParen LowLight
 
 " search
 call s:h("Search",    {"bg": s:yellow, "fg": s:bg0})
