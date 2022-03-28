@@ -1,6 +1,7 @@
+" Vim colourscheme file
 " Title: mnml
+" Author: Reyan Chaudhry
 " Description: highlight smarter, not more
-" Author: Reyan "nuaNce" Chaudhry
 "
 " TODO
 " ====
@@ -16,7 +17,14 @@ endif
 
 let g:colors_name='mnml'
 
-" colours
+function! s:h(group, style)
+  execute "highlight" a:group
+    \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "none")
+    \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "none")
+    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "none")
+endfunction
+
+" Color Vars {{{
 let s:bg0     = { "cterm": "0"   }
 let s:bg1     = { "cterm": "8"   }
 let s:bg2     = { "cterm": "242" }
@@ -28,23 +36,17 @@ let s:yellow  = { "cterm": "3"   }
 let s:blue    = { "cterm": "4"   }
 let s:magenta = { "cterm": "5"   }
 let s:cyan    = { "cterm": "6"   }
+" }}}
 
-" gg2ez
-function! s:h(group, style)
-  execute "highlight" a:group
-    \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "none")
-    \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "none")
-    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "none")
-endfunction
-
-" subtle
+" Subtle {{{
 call s:h("Subtle", {"fg": s:bg0})
   hi! def link LineNr      Subtle
   hi! def link FoldColumn  Subtle
   hi! def link SignColumn  Subtle
   hi! def link VertSplit   Subtle
+" }}}
 
-" comments
+" Comments {{{
 call s:h("Comment", {"fg": s:bg1})
   hi! def link mkdCodeStart             Comment
   hi! def link mkdCodeEnd               Comment
@@ -58,8 +60,9 @@ call s:h("Comment", {"fg": s:bg1})
   hi! def link rustCommentLineDoc       Comment
   hi! def link texCmdBookTabs           Comment
   hi! def link scssSemiColon            Comment
+" }}}
 
-" 'noise'
+" Noise {{{
 call s:h("Noise", {"fg": s:bg2})
   hi! def link Operator             Noise
   hi! def link cssImportant         Noise
@@ -102,8 +105,9 @@ call s:h("Noise", {"fg": s:bg2})
   hi! def link pythonDottedname     Noise
   hi! def link VimHiBang            Noise
   hi! def link pythonOperator       Noise
+" }}}
 
-" normal
+" Normal {{{
 call s:h("Normal", {"fg": s:fg1})
   hi! def link Cursor              Normal
   hi! def link Function            Normal
@@ -130,6 +134,7 @@ call s:h("Normal", {"fg": s:fg1})
   hi! def link cssBraceError       Normal
   hi! def link cssNoise            Normal
   hi! def link cssProp             Normal
+  hi! def link jsFuncParens        Normal
   hi! def link texFilesArg         Normal
   hi! def link texFileArg          Normal
   hi! def link rustEscapeUnicode   Normal
@@ -149,26 +154,30 @@ call s:h("Normal", {"fg": s:fg1})
   hi! def link texArg              Normal
   hi! def link xmlAttrib           Normal
   hi! def link crystalCurlyBlock   Normal
+" }}}
 
-" red
+" Red {{{
 call s:h("Red", {"fg": s:red})
   hi! def link Error       Red
   hi! def link Question    Red
   hi! def link DiffDelete  Red
   hi! def link DiffRemoved Red
   hi! def link SpellBad    Red
+" }}}
 
-" green
+" Green {{{
 call s:h("Green", {"fg": s:green})
   hi! def link SpellRare  Green
   hi! def link SpellLocal Green
   hi! def link VimtexMsg  Green
+" }}}
 
-" yellow
+" Yellow {{{
 call s:h("Yellow", {"fg": s:yellow})
   hi! def link SpellCap Yellow
+" }}}
 
-" blue
+" Blue {{{
 call s:h("Blue", {"fg": s:blue})
   hi! def link Directory             Blue
   hi! def link Character             Blue
@@ -199,14 +208,17 @@ call s:h("Blue", {"fg": s:blue})
   hi! def link NvimTreeSpecialFile   Blue
   hi! def link scssAmpersand         Blue
   hi! def link crystalInteger        Blue
+" }}}
 
-" magenta
+" Magenta {{{
 call s:h("Magenta", {"fg": s:magenta})
+" }}}
 
-" cyan
+" Cyan {{{
 call s:h("Cyan", {"fg": s:cyan})
+" }}}
 
-" bolded
+" Bolded {{{
 call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link Statement           Bolded
   hi! def link Conditonal          Bolded
@@ -274,65 +286,73 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link vimUsrCmd           Bolded
   hi! def link MoreMsg             Bolded
   hi! def link crystalDefine       Bolded
+" }}}
 
-" italicized
+" Italicized {{{
 call s:h("Italicized", {"fg": s:fg1, "cterm": "italic" })
+" }}}
 
-" light bg
+" Light bg {{{
 call s:h("Highlight", {"bg": s:bg1})
   hi! def link Visual    Highlight
   hi! def link VisualNOS Highlight
   hi! def link Ignore    Highlight
   hi! def link qfLineNr  Highlight
-  hi! def link Folded    Highlight
+" }}}
 
-" darker bg
+" Darker bg {{{
 call s:h("LowLight", {"bg": s:bg0})
   hi! def link MatchParen LowLight
+  hi! def link Folded     LowLight
+" }}}
 
-" search
+" Search {{{
 call s:h("Search",    {"bg": s:yellow, "fg": s:bg0})
 call s:h("IncSearch", {"bg": s:yellow, "fg": s:bg0, "cterm": "bold"})
+" }}}
 
-" links
+" Links {{{
 call s:h("Href", {"fg": s:cyan, "cterm": "underline"})
   hi! def link htmlLink  Href
+" }}}
 
-" diffs
+" Diffs {{{
 call s:h("DiffAdd",    {"fg": s:green, "bg": s:bg0})
 call s:h("DiffAdded",  {"fg": s:green, "bg": s:bg0})
 call s:h("DiffChange", {"fg": s:yellow})
   hi! def link DiffChange Yellow
   hi! def link DiffText   Normal
+" }}}
 
-" pmenu and tabs
+" Pmenu and tabs {{{
 call s:h("PmenuSel", {"fg": s:fg0, "bg": s:bg0, "cterm": "bold"})
   hi! def link TabLineSel  PmenuSel
 call s:h("Pmenu", {"fg": s:fg0, "bg": s:bg0})
   hi! def link PmenuThumb  Pmenu
   hi! def link PmenuSbar   Pmenu
+" }}}
 
-" statusline
+" Statusline {{{
 call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg0, "fg": s:green})
 call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg0, "fg": s:red})
 call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg0, "fg": s:yellow})
+" }}}
 
-" csv shit
-call s:h("CSVColumnHeaderOdd", {"fg": s:fg0, "bg": s:bg1, "cterm": "bold"})
-  hi! def link CSVColumnHeaderEven CSVColumnHeaderOdd
-  hi CSVColumnOdd            ctermbg=0
-
-" wildmenu
+" Wildmenu {{{
 call s:h("WildMenu", {"cterm": "underline,bold", "bg": s:bg0, "fg": s:fg0})
+" }}}
 
-" fuck these so much
+" Status and Columns {{{
 hi! StatusLineNC cterm=NONE
 hi! StatusLine   cterm=NONE
 hi! CursorLine   cterm=NONE
 hi! CursorColumn cterm=NONE
 hi! EndOFBuffer  ctermfg=0
 hi! NonText      ctermfg=0
+" }}}
 
+" Plugin-specific highlighting {{{
+"
 " vimTeX
 hi! def link VimtexTocSecLabel Statement
 hi! def link VimtexInfo        Statement
@@ -354,3 +374,4 @@ hi! def link ALEWarning     Yellow
 hi! def link ALEWarningSign Yellow
 hi! def link ALEInfo        Normal
 hi! def link ALEInfoSign    Normal
+" }}}
