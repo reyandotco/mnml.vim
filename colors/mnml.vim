@@ -78,7 +78,7 @@ call s:h("Noise", {"fg": s:bg2})
   hi! def link javaParen1           Noise
   hi! def link javaParen            Noise
   hi! def link rustStorage          Noise
-  hi! def link texCmdEnv           Noise
+  hi! def link texCmdEnv            Noise
   hi! def link rustAttribute        Noise
   hi! def link rustFoldBraces       Noise
   hi! def link rustSigil            Noise
@@ -89,6 +89,7 @@ call s:h("Noise", {"fg": s:bg2})
   hi! def link typescriptArrowFunc  Noise
   hi! def link typescriptBlock      Noise
   hi! def link rubyInstanceVariable Noise
+  hi! def link luaSymbolOperator    Noise
   hi! def link jsArrowFunction      Noise
   hi! def link cSpecial             Noise
   hi! def link cBlock               Noise
@@ -137,6 +138,9 @@ call s:h("Normal", {"fg": s:fg1})
   hi! def link jsFuncParens        Normal
   hi! def link texFilesArg         Normal
   hi! def link texFileArg          Normal
+  hi! def link luaBrackets         Normal
+  hi! def link luaFuncParens       Normal
+  hi! def link luaParens           Normal
   hi! def link rustEscapeUnicode   Normal
   hi! def link rustModPathSep      Normal
   hi! def link rustFuncCall        Normal
@@ -208,6 +212,7 @@ call s:h("Blue", {"fg": s:blue})
   hi! def link NvimTreeSpecialFile   Blue
   hi! def link scssAmpersand         Blue
   hi! def link crystalInteger        Blue
+  hi! def link luaFuncArgName        Blue
 " }}}
 
 " Magenta {{{
@@ -260,6 +265,7 @@ call s:h("Bolded", {"fg": s:fg0, "cterm": "bold" })
   hi! def link scssSelectorName    Bolded
   hi! def link sassClass           Bolded
   hi! def link xmlNamespace        Bolded
+  hi! def link luaFuncKeyword      Bolded
   hi! def link xmlTagName          Bolded
   hi! def link xmlEndTag           Bolded
   hi! def link xmlTag              Bolded
@@ -336,6 +342,12 @@ call s:h("Pmenu", {"fg": s:fg0, "bg": s:bg0})
 call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg0, "fg": s:green})
 call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg0, "fg": s:red})
 call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg0, "fg": s:yellow})
+" }}}
+
+" Csv shit {{{
+call s:h("CSVColumnHeaderOdd", {"fg": s:fg0, "bg": s:bg1, "cterm": "bold"})
+  hi! def link CSVColumnHeaderEven CSVColumnHeaderOdd
+  hi CSVColumnOdd            ctermbg=0
 " }}}
 
 " Wildmenu {{{
